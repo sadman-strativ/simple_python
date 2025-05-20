@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo '🧪 Running tests...'
                 // Example: run unit tests
-                phthon3 hello.py
+                sh 'python3 hello.py'
                 sh 'echo Running tests...'
                 // Replace with your test command, e.g., pytest or npm test
             }
