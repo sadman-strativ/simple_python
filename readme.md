@@ -1,10 +1,10 @@
 # Getting started with Jenkins
 
-# Installation
 ## We will use Docker to run the Jenkins server
 ## The instructions are for macOS only. Might be suitable for linux as well (unix systems)
 
-### Create a network first. Here, we are create a network named 'jenkins'
+## Installation
+### Create a network first. Here, we are creating a network named 'jenkins'
 ```
 docker network create jenkins
 ```
@@ -16,7 +16,6 @@ docker run -d -p 8080:8080 -p 50000:50000 --network jenkins -v jenkins_volume:/v
 ```
 **This command will pull the latest Jenkins image from docke hub and build a container with it and run it**
 
-
 ### Connect and interact with Jenkins UI
 ```
 http://localhost:8080
@@ -25,9 +24,10 @@ http://localhost:8080
 ## Build and run a alpine/socat container to forward traffic from Jenkins to Docker Desktop on Host Machine
 **We do this to use Docker of the host machine as a cloud agent. This container will allow Jenkins to use the host machine docker as a docker agent and build container to execute jobs**
 
-## Build and run the alpine/socal container
 ### Installation reference
 https://stackoverflow.com/questions/47709208/how-to-find-docker-host-uri-to-be-used-in-jenkins-docker-plugin
+
+### Build and run the alpine/socal container
 ```
 docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
