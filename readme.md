@@ -1,8 +1,8 @@
 # Getting started with Jenkins
 
 # Installation
-## We will use Docker to run the Jenkins server.
-## The instructions are for MacOS
+## We will use Docker to run the Jenkins server
+## The instructions are for macOS only. Might be suitable for linux as well (unix systems)
 
 ### Create a network first. Here, we are create a network named 'jenkins'
 ```
@@ -14,7 +14,7 @@ docker network create jenkins
 docker run -d -p 8080:8080 -p 50000:50000 --network jenkins -v jenkins_volume:/var/jenkins_home --name my_jenkins jenkins/jenkins
 # IF we want to pull any specific version of jenkins image, use tag to pull it. For example, jenkins/jenkins:jdk17
 ```
-**This command will pull the latest Jenkins image from docke hub and build a container with it and run it.**
+**This command will pull the latest Jenkins image from docke hub and build a container with it and run it**
 
 
 ### Connect and interact with Jenkins UI
@@ -31,7 +31,7 @@ https://stackoverflow.com/questions/47709208/how-to-find-docker-host-uri-to-be-u
 ```
 docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
-**Now, after the container is up, we can inspect the container, get the IP address and use it as the docker agent URI.**
+**Now, after the container is up, we can inspect the container, get the IP address and use it as the docker agent URI**
 ```
 tcp://<alpine-socal-container-ip>:2375
 ```
@@ -44,9 +44,9 @@ docker pull sadmanmadman/myjenkinsagents:python
 ```
 sadmanmadman/myjenkinsagents:python
 ```
-### Now, the Jenkins docker agent is ready to execute jobs.
+### Now, the Jenkins docker agent is ready to execute jobs
 
-# References
+# Some references that I have used and could be helpful
 - https://youtu.be/6YZvp2GwT0A?si=79FBtXmvulzD3qgD
 - https://github.com/devopsjourney1/jenkins-101
 - https://aws.plainenglish.io/jenkins-ci-cd-pipeline-explained-by-a-junior-devops-engineer-1d67ecc08a7e
