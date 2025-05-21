@@ -40,7 +40,7 @@ tcp://<alpine-socal-container-ip>:2375
 ```
 docker pull sadmanmadman/myjenkinsagents:python
 ```
-### Or in the image filed we can just provide the image name and Jenkins will pull and build the python agent with it itself
+### Or in the image field in the UI, we can just provide the image name and Jenkins will pull and build the python agent with it itself
 ```
 sadmanmadman/myjenkinsagents:python
 ```
