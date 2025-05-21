@@ -1,5 +1,11 @@
 pipeline {
-    agent any  // Runs on any available agent
+    //agent any  // Runs on any available agent
+    agent {
+        dockerfile {
+            filename "Dockerfile.agent-python"
+            additionalBuildArgs "-t jenkins-python-agent"
+        }
+    }
 
     stages {
         stage('Build') {
